@@ -1,7 +1,5 @@
-import type { Config } from 'jest';
-import path from 'path';
-
-export default {
+/** @type {import("jest").Config} */
+module.exports = {
   transform: {
     '^.+\\.(t|j)sx?$': [
       '@swc/jest',
@@ -21,4 +19,5 @@ export default {
     ],
   },
   clearMocks: true,
-} satisfies Config;
+  setupFilesAfterEnv: [require('path').join(__dirname, './testSetup.js')],
+};
