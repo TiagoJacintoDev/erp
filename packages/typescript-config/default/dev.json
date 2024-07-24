@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Default Development",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.mjs"],
+  "exclude": ["node_modules", "dist", "build", "coverage"]
+}
