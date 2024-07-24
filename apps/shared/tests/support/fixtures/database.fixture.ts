@@ -1,4 +1,4 @@
-import { type CompositionRoot } from '@sms/backend/src/shared/infra/CompositionRoot';
+import { type CompositionRoot } from 'backend/src/shared/infra/CompositionRoot';
 
 export class DatabaseFixture {
   constructor(private readonly composition: CompositionRoot) {}

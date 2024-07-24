@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.build.json",
+  "extends": "@sms/typescript-config/node/build.json",
   "compilerOptions": {
     "outDir": "./dist"
   },
