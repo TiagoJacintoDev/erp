@@ -1,4 +1,5 @@
-import { type Maybe } from '../../core/Maybe';
+import { type Maybe } from '@sms/shared/src/core/Maybe';
+
 import { type AggregateRoot } from '../AggregateRoot';
 import { type UniqueEntityID } from '../UniqueEntityID';
 import { type DomainEvent } from './DomainEvent';
@@ -46,7 +47,7 @@ export class DomainEvents {
     return found;
   }
 
-  public static dispatchEventsForAggregate(id: UniqueEntityID): void {
+  public static dispatchEventsForAggregateWithID(id: UniqueEntityID): void {
     const aggregate = this.findMarkedAggregateByID(id);
 
     if (aggregate) {
@@ -56,12 +57,12 @@ export class DomainEvents {
     }
   }
 
-  public static register(EventHandler: (event: DomainEvent) => void, eventClassName: string): void {
+  public static register(handler: EventHandler, eventClassName: string): void {
     if (!Object.prototype.hasOwnProperty.call(this.handlersMap, eventClassName)) {
       this.handlersMap[eventClassName] = [];
     }
 
-    this.handlersMap[eventClassName].push(EventHandler);
+    this.handlersMap[eventClassName].push(handler);
   }
 
   public static clearHandlers(): void {
