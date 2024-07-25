@@ -7,8 +7,6 @@ export abstract class BaseController {
     try {
       await this.executeImpl(req, res);
     } catch (err) {
-      console.log(`[BaseController]: Uncaught controller error`);
-      console.log(err);
       this.fail(res, 'An unexpected error occurred');
     }
   }
@@ -24,11 +22,14 @@ export abstract class BaseController {
     return res.status(code).json(response);
   }
 
-  public static errorResponse(res: express.Response, code: number, error: string) {
+  public static errorResponse(res: express.Response, code: number, error: Error | string) {
     const response = {
       success: false,
-      error: error,
+      error,
     };
+
+    res.locals.errorName = error instanceof Error ? error.name : 'UnknownError';
+    res.locals.errorMessage = error instanceof Error ? error.message : error;
 
     return res.status(code).json(response);
   }
@@ -41,32 +42,32 @@ export abstract class BaseController {
     return BaseController.successResponse(res, 201);
   }
 
-  public clientError(res: express.Response, message?: string) {
-    return BaseController.errorResponse(res, 400, message ?? 'Unauthorized');
+  public clientError(res: express.Response, error?: Error | string) {
+    return BaseController.errorResponse(res, 400, error ?? 'Unauthorized');
   }
 
-  public unauthorized(res: express.Response, message?: string) {
-    return BaseController.errorResponse(res, 401, message ?? 'Unauthorized');
+  public unauthorized(res: express.Response, error?: Error | string) {
+    return BaseController.errorResponse(res, 401, error ?? 'Unauthorized');
   }
 
-  public paymentRequired(res: express.Response, message?: string) {
-    return BaseController.errorResponse(res, 402, message ?? 'Payment required');
+  public paymentRequired(res: express.Response, error?: Error | string) {
+    return BaseController.errorResponse(res, 402, error ?? 'Payment required');
   }
 
-  public forbidden(res: express.Response, message?: string) {
-    return BaseController.errorResponse(res, 403, message ?? 'Forbidden');
+  public forbidden(res: express.Response, error?: Error | string) {
+    return BaseController.errorResponse(res, 403, error ?? 'Forbidden');
   }
 
-  public notFound(res: express.Response, message?: string) {
-    return BaseController.errorResponse(res, 404, message ?? 'Not found');
+  public notFound(res: express.Response, error?: Error | string) {
+    return BaseController.errorResponse(res, 404, error ?? 'Not found');
   }
 
-  public conflict(res: express.Response, message?: string) {
-    return BaseController.errorResponse(res, 409, message ?? 'Conflict');
+  public conflict(res: express.Response, error?: Error | string) {
+    return BaseController.errorResponse(res, 409, error ?? 'Conflict');
   }
 
-  public tooMany(res: express.Response, message?: string) {
-    return BaseController.errorResponse(res, 429, message ?? 'Too many requests');
+  public tooMany(res: express.Response, error?: Error | string) {
+    return BaseController.errorResponse(res, 429, error ?? 'Too many requests');
   }
 
   public todo(res: express.Response) {
@@ -74,7 +75,6 @@ export abstract class BaseController {
   }
 
   public fail(res: express.Response, error: Error | string) {
-    console.log(error);
-    return BaseController.errorResponse(res, 500, error.toString());
+    return BaseController.errorResponse(res, 500, error);
   }
 }

@@ -9,6 +9,7 @@ import { type Config, config } from './config';
 import { database } from './database';
 import { type Database } from './database/Database';
 import { WebServer } from './http/WebServer';
+import { logger } from './logging';
 
 export class CompositionRoot {
   private static readonly instance?: CompositionRoot;
@@ -31,11 +32,11 @@ export class CompositionRoot {
       router: v1Router,
     });
     this.config = config;
-    console.log(`[CompositionRoot] Running in ${this.config.env} environment.`);
+    logger.info(`[CompositionRoot] Running in ${this.config.env} environment.`);
 
-    console.log('[CompositionRoot] Setting up subscriptions...');
+    logger.info('[CompositionRoot] Setting up subscriptions...');
     this.setupSubscriptions();
-    console.log('[CompositionRoot] Subscriptions setup complete.');
+    logger.info('[CompositionRoot] Subscriptions setup complete.');
   }
 
   private setupSubscriptions() {

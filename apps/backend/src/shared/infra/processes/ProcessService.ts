@@ -1,5 +1,7 @@
 import { exec } from 'child_process';
 
+import { logger } from '../logging';
+
 type Callback = () => void;
 
 export class ProcessService {
@@ -30,11 +32,11 @@ export class ProcessService {
             console.error(`Failed to kill the process: ${error.message}`);
             return cb?.();
           }
-          console.log(`Process running on port ${port} has been killed.`);
+          logger.info(`Process running on port ${port} has been killed.`);
           return cb?.();
         });
       } else {
-        console.log(`No process found running on port ${port}.`);
+        logger.info(`No process found running on port ${port}.`);
         return cb?.();
       }
     });

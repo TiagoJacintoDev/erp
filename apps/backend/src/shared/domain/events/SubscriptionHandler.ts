@@ -1,3 +1,5 @@
+import { logger } from '../../infra/logging';
+
 type EventLog = {
   event: string;
   success: boolean;
@@ -6,7 +8,7 @@ type EventLog = {
 
 export abstract class SubscriptionHandler {
   protected logEvent(log: EventLog) {
-    console.log(
+    logger.info(
       `[${log.event}]: ${log.success ? 'Successfully executed' : 'Failed to execute'} ${log.executedUseCase} use case`,
     );
   }

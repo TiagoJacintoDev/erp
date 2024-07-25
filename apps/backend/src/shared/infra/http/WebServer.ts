@@ -1,6 +1,8 @@
 import express, { type Router } from 'express';
 import { type Server } from 'http';
 
+import { logger } from '../logging';
+import { errorMorgan, infoMorgan } from '../logging/morgan';
 import { ProcessService } from '../processes/ProcessService';
 
 type WebServerConfig = {
@@ -24,6 +26,9 @@ export class WebServer {
 
   private configureMiddleware() {
     this.express.use(express.json());
+    this.express.use(errorMorgan);
+    this.express.use(infoMorgan);
+    // this.express.use(errorHandler);
   }
 
   private setupRoutes() {
@@ -34,7 +39,7 @@ export class WebServer {
     return new Promise((resolve) => {
       ProcessService.killProcessOnPort(this.config.port, () => {
         this.server = this.express.listen(this.config.port, () => {
-          console.log(`Server is running on port ${this.config.port}`);
+          logger.info(`Server is running on port ${this.config.port}`);
           resolve();
         });
       });

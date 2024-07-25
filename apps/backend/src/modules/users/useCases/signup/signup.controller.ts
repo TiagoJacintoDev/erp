@@ -20,7 +20,7 @@ export class SignupController extends BaseController {
 
       switch (true) {
         case error instanceof SignupErrors.EmailAlreadyExistsError:
-          return this.conflict(res, error.message);
+          return this.conflict(res, error);
         default:
           return this.fail(res, 'An unexpected error occurred.');
       }

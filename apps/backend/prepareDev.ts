@@ -2,8 +2,10 @@ import { checkDocker } from '@sms/shared/src/scripts/checkDocker';
 import { execSync } from 'child_process';
 import path from 'path';
 
+import { logger } from './src/shared/infra/logging';
+
 export function prepareDev(env = '.env.development'): void {
-  console.log(`Preparing dev environment using ${env}`);
+  logger.info(`Preparing dev environment using ${env}`);
 
   checkDocker();
 

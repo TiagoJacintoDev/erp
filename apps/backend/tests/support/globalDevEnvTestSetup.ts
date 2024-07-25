@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 
 import { prepareDev } from '../../prepareDev';
+import { logger } from '../../src/shared/infra/logging';
 
 export default async (): Promise<void> => {
   prepareDev();
@@ -10,6 +11,6 @@ export default async (): Promise<void> => {
 
   const envPath = path.join(__dirname, `../../.env.${nodeEnv}`);
 
-  console.log('Reading env file', envPath);
+  logger.info('Reading env file', envPath);
   dotenv.config({ path: envPath });
 };
