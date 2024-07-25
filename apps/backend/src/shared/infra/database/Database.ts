@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 
-import { type Config } from '../Config';
+import { type Config } from '../config';
 
 export class Database {
   private readonly connection: PrismaClient;
