@@ -1,7 +1,6 @@
 import { CompositionRoot } from './CompositionRoot';
-import { Config } from './Config';
 
-const composition = CompositionRoot.getInstance(new Config('start:dev'));
+const composition = CompositionRoot.getInstance();
 const webServer = composition.getWebServer();
 
 export async function bootstrap() {
