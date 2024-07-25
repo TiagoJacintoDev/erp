@@ -1,6 +1,7 @@
 import express, { type Router } from 'express';
 import { type Server } from 'http';
 
+import { i18nMiddleware } from '../localization/i18n';
 import { logger } from '../logging';
 import { errorMorgan, infoMorgan } from '../logging/morgan';
 import { ProcessService } from '../processes/ProcessService';
@@ -28,7 +29,7 @@ export class WebServer {
     this.express.use(express.json());
     this.express.use(errorMorgan);
     this.express.use(infoMorgan);
-    // this.express.use(errorHandler);
+    this.express.use(i18nMiddleware);
   }
 
   private setupRoutes() {

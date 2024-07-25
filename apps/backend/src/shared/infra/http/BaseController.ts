@@ -7,7 +7,14 @@ export abstract class BaseController {
     try {
       await this.executeImpl(req, res);
     } catch (err) {
-      this.fail(res, 'An unexpected error occurred');
+      const message = 'An unexpected error occurred';
+
+      if (err instanceof Error) {
+        err.message = err.message + ' - ' + message;
+        this.fail(res, err);
+      }
+
+      this.fail(res, message);
     }
   }
 
