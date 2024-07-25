@@ -1,3 +1,4 @@
+import { SignupDTO } from 'backend/src/modules/users/useCases/signup/signup.dto';
 import { type CompositionRoot } from 'backend/src/shared/infra/CompositionRoot';
 
 export class DatabaseFixture {
@@ -10,6 +11,20 @@ export class DatabaseFixture {
       await connection.$transaction([]);
     } catch (error) {
       console.error(error);
+    }
+  }
+
+  async setupWithExistingUsersFromCommands(commands: SignupDTO[]) {
+    const application = this.composition.getApplication();
+
+    for (let command of commands) {
+      await application.users.useCases.deleteUser.execute({
+        email: command.email,
+      });
+    }
+
+    for (let command of commands) {
+      await application.users.useCases.signup.execute(command);
     }
   }
 }
