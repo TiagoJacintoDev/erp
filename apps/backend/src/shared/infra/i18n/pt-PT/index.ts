@@ -4,7 +4,7 @@ import type { Translation } from '../i18n-types';
 const pt_PT = {
   errors: {
     users: {
-      signup: SignupErrors.translations.pt_PT,
+      signup: SignupErrors.translations['pt-PT'],
     },
   },
 } satisfies Translation;

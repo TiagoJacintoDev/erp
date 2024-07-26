@@ -15,7 +15,7 @@ export namespace SignupErrors {
     en: {
       EmailAlreadyExists: 'User with email {email:string} already exists',
     },
-    pt_PT: {
+    'pt-PT': {
       EmailAlreadyExists: 'O utilizador com email {email} já existe',
     },
   } satisfies ModuleErrorsTranslation<'users', 'signup'>;
