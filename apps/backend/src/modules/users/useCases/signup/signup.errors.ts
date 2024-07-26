@@ -13,7 +13,7 @@ export namespace SignupErrors {
 
   export const translations = {
     en: {
-      EmailAlreadyExists: 'User with email {email:string} already exists',
+      EmailAlreadyExists: 'The user with email {email} already exists',
     },
     'pt-PT': {
       EmailAlreadyExists: 'O utilizador com email {email} já existe',

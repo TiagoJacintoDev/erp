@@ -6,10 +6,14 @@ import { type UniqueEntityID } from '../../../../../shared/domain/UniqueEntityID
 import { type User } from '../../../domain/user';
 import { type UserEmail } from '../../../domain/user-email';
 import { PrismaUserMapper } from '../../../mappers/PrismaUserMapper';
+import { type PasswordHasher } from '../../../services/hasher/passwordHasher.service';
 import { type UserRepository } from '../user.repository';
 
 export class PrismaUserRepository implements UserRepository {
-  constructor(private readonly client: PrismaClient) {}
+  constructor(
+    private readonly client: PrismaClient,
+    private readonly passwordHasher: PasswordHasher,
+  ) {}
 
   async findByEmail(email: UserEmail): AsyncMaybe<User> {
     const rawUser = await this.client.user.findUnique({
@@ -25,7 +29,7 @@ export class PrismaUserRepository implements UserRepository {
 
   async save(user: User): Promise<void> {
     await this.client.user.create({
-      data: PrismaUserMapper.toPersistence(user),
+      data: await PrismaUserMapper.toPersistence(user, this.passwordHasher),
     });
 
     DomainEvents.dispatchEventsForAggregateWithID(user.id);

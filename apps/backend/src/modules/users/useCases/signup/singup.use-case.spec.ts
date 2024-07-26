@@ -1,7 +1,7 @@
 import {
   type AlreadyCreatedAccountTable,
   testSignupFeature,
-} from '@sms/shared/tests/modules/users/features/loadSignupFeature';
+} from '@sms/shared/tests/modules/users/features/signup/loadSignupFeature';
 import { DatabaseFixture } from '@sms/shared/tests/support/fixtures/database.fixture';
 
 import { UserBuilder } from '../../../../../tests/support/builders/user.builder';

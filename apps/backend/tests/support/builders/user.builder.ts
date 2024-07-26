@@ -8,9 +8,11 @@ export class UserBuilder extends Builder<SignupDTO> {
     super({
       default: {
         email: '',
+        password: '',
       },
       random: {
         email: faker.internet.email(),
+        password: faker.internet.password(),
       },
     });
   }
