@@ -1,3 +1,4 @@
+import { type SignupDTO } from '@sms/shared/src/modules/users/signup/signup.dto';
 import {
   type AlreadyCreatedAccountTable,
   testSignupFeature,
@@ -8,7 +9,6 @@ import { UserBuilder } from '../../../../../tests/support/builders/user.builder'
 import { type UseCaseResponse } from '../../../../../tests/support/types/UseCaseResponse';
 import { ValidationError } from '../../../../shared/domain/errors/ValidationError';
 import { CompositionRoot } from '../../../../shared/infra/CompositionRoot';
-import { type SignupDTO } from './signup.dto';
 import { SignupErrors } from './signup.errors';
 
 type SignupResponse = UseCaseResponse<

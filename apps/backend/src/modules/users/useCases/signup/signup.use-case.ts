@@ -1,4 +1,5 @@
 import { type Nil } from '@sms/shared/src/core/Nil';
+import { type SignupDTO } from '@sms/shared/src/modules/users/signup/signup.dto';
 
 import { err, ok, Result } from '../../../../shared/core/Result';
 import { type UseCase } from '../../../../shared/core/UseCase';
@@ -7,7 +8,6 @@ import { User } from '../../domain/user';
 import { UserEmail } from '../../domain/user-email';
 import { UserPassword } from '../../domain/user-password';
 import { type UserRepository } from '../../repositories/user/user.repository';
-import { type SignupDTO } from './signup.dto';
 import { SignupErrors } from './signup.errors';
 
 type Response = Result<Nil, SignupErrors.EmailAlreadyExists | ValidationError>;
@@ -17,6 +17,7 @@ export class SignupUseCase implements UseCase<SignupDTO, Response> {
 
   async execute(dto: SignupDTO): Promise<Response> {
     const emailOrError = UserEmail.create(dto.email);
+
     const passwordOrError = UserPassword.create({ value: dto.password });
 
     const payloadResult = Result.combine([emailOrError, passwordOrError]);
