@@ -114,7 +114,7 @@ testSignupFeature('@backend', (test) => {
     then('they should see an error notifying them that the account already exists', () => {
       for (const response of responses) {
         expect(response.isErr()).toBeTrue();
-        expect(response.unwrapError()).toBeInstanceOf(SignupErrors.EmailAlreadyExistsError);
+        expect(response.unwrapError()).toBeInstanceOf(SignupErrors.EmailAlreadyExists);
       }
     });
 

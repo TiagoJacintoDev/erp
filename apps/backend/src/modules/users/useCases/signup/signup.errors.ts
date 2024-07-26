@@ -1,9 +1,22 @@
 import { UseCaseError } from '../../../../shared/core/UseCaseError';
+import { type ModuleErrorsTranslation } from '../../../../shared/infra/i18n/i18n-module-types';
 
 export namespace SignupErrors {
-  export class EmailAlreadyExistsError extends UseCaseError {
+  export class EmailAlreadyExists extends UseCaseError {
+    readonly email: string;
+
     constructor(email: string) {
-      super(`The email ${email} is already in use`);
+      super();
+      this.email = email;
     }
   }
+
+  export const translations = {
+    en: {
+      EmailAlreadyExists: 'User with email {email:string} already exists',
+    },
+    pt_PT: {
+      EmailAlreadyExists: 'O utilizador com email {email} já existe',
+    },
+  } satisfies ModuleErrorsTranslation<'users', 'signup'>;
 }

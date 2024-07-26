@@ -1,10 +1,7 @@
-export abstract class UseCaseError extends Error {
-  readonly message: string;
+export abstract class UseCaseError {
   readonly name: string;
 
-  constructor(message: string) {
-    super();
+  constructor() {
     this.name = this.constructor.name;
-    this.message = message;
   }
 }

@@ -9,7 +9,7 @@ import { type UserRepository } from '../../repositories/user/user.repository';
 import { type SignupDTO } from './signup.dto';
 import { SignupErrors } from './signup.errors';
 
-type Response = Result<Nil, SignupErrors.EmailAlreadyExistsError | ValidationError>;
+type Response = Result<Nil, SignupErrors.EmailAlreadyExists | ValidationError>;
 
 export class SignupUseCase implements UseCase<SignupDTO, Response> {
   constructor(private readonly userRepository: UserRepository) {}
@@ -26,7 +26,7 @@ export class SignupUseCase implements UseCase<SignupDTO, Response> {
     const emailAlreadyExists = Boolean(await this.userRepository.findByEmail(email));
 
     if (emailAlreadyExists) {
-      return err(new SignupErrors.EmailAlreadyExistsError(email.value));
+      return err(new SignupErrors.EmailAlreadyExists(email.value));
     }
 
     const user = User.create({
