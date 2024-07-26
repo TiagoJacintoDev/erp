@@ -1,5 +1,6 @@
 import type express from 'express';
 
+import { ValidationError } from '../../../../shared/domain/errors/ValidationError';
 import { BaseController } from '../../../../shared/infra/http/BaseController';
 import { type SignupDTO } from './signup.dto';
 import { SignupErrors } from './signup.errors';
@@ -18,9 +19,13 @@ export class SignupController extends BaseController {
     if (result.isErr()) {
       const error = result.error;
 
+      const errorsTranslation = req.t.errors.users.signup;
+
       switch (true) {
-        case error instanceof SignupErrors.EmailAlreadyExistsError:
-          return this.conflict(res, error);
+        case error instanceof SignupErrors.EmailAlreadyExists:
+          return this.conflict(res, errorsTranslation.EmailAlreadyExists({ email: error.email }));
+        case error instanceof ValidationError:
+          return this.fail(res, error.message);
         default:
           return this.fail(res, 'An unexpected error occurred.');
       }
