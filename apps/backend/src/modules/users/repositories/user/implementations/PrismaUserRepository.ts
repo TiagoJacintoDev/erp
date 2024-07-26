@@ -5,14 +5,13 @@ import { DomainEvents } from '../../../../../shared/domain/events/DomainEvents';
 import { type UniqueEntityID } from '../../../../../shared/domain/UniqueEntityID';
 import { type User } from '../../../domain/user';
 import { type UserEmail } from '../../../domain/user-email';
-import { PrismaUserMapper } from '../../../mappers/PrismaUserMapper';
-import { type PasswordHasher } from '../../../services/hasher/passwordHasher.service';
+import { type PrismaUserMapper } from '../../../mappers/PrismaUserMapper';
 import { type UserRepository } from '../user.repository';
 
 export class PrismaUserRepository implements UserRepository {
   constructor(
     private readonly client: PrismaClient,
-    private readonly passwordHasher: PasswordHasher,
+    private readonly mapper: PrismaUserMapper,
   ) {}
 
   async findByEmail(email: UserEmail): AsyncMaybe<User> {
@@ -24,12 +23,12 @@ export class PrismaUserRepository implements UserRepository {
       return null;
     }
 
-    return PrismaUserMapper.toDomain(rawUser);
+    return this.mapper.toDomain(rawUser);
   }
 
   async save(user: User): Promise<void> {
     await this.client.user.create({
-      data: await PrismaUserMapper.toPersistence(user, this.passwordHasher),
+      data: await this.mapper.toPersistence(user),
     });
 
     DomainEvents.dispatchEventsForAggregateWithID(user.id);
@@ -46,6 +45,6 @@ export class PrismaUserRepository implements UserRepository {
       return null;
     }
 
-    return PrismaUserMapper.toDomain(rawUser);
+    return this.mapper.toDomain(rawUser);
   }
 }

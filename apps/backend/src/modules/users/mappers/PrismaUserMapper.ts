@@ -1,12 +1,17 @@
 import { type User as RawUser } from '@prisma/client';
 
+import { RepositoryMapper } from '../../../shared/infra/adapters/RepositoryMapper';
 import { User } from '../domain/user';
 import { UserEmail } from '../domain/user-email';
 import { UserPassword } from '../domain/user-password';
 import { type PasswordHasher } from '../services/hasher/passwordHasher.service';
 
-export class PrismaUserMapper {
-  static toDomain(raw: RawUser): User {
+export class PrismaUserMapper extends RepositoryMapper<User, RawUser> {
+  constructor(private readonly hasher: PasswordHasher) {
+    super();
+  }
+
+  toDomain(raw: RawUser): User {
     return User.create({
       email: UserEmail.create(raw.email).unwrapValue(),
       password: UserPassword.create({ value: raw.password, hashed: true }).unwrapValue(),
@@ -14,8 +19,8 @@ export class PrismaUserMapper {
     });
   }
 
-  static async toPersistence(user: User, hasher: PasswordHasher): Promise<RawUser> {
-    const hashedPassword = await user.password.getHashed(hasher);
+  async toPersistence(user: User): Promise<RawUser> {
+    const hashedPassword = await user.password.getHashed(this.hasher);
 
     return {
       id: user.id.toString(),
