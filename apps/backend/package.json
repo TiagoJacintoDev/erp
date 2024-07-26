@@ -4,10 +4,10 @@
   "scripts": {
     "migrate": "prisma db push --schema src/shared/infra/database/prisma/schema.prisma",
     "generate-prisma-client": "prisma generate --schema src/shared/infra/database/prisma/schema.prisma",
-    "start:dev": "npm-run-all --parallel start:dev:tsx typesafe-i18n",
+    "start:dev": "npm-run-all --parallel start:dev:tsx generate-i18n-types",
     "start:dev:tsx": "tsx ./prepareDevCli.ts && dotenv -e .env.development -- tsx watch ./src",
     "start:prod": "dotenv -e .env.production -- node ./dist",
-    "typesafe-i18n": "typesafe-i18n",
+    "generate-i18n-types": "typesafe-i18n",
     "clean": "rimraf ./dist",
     "build": "pnpm run clean && tsc -b tsconfig.build.json && tsc-alias -p tsconfig.build.json -r ../../tsAliasesReplacer.js",
     "lint": "eslint . --fix",
