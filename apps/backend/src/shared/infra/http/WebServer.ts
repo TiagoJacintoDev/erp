@@ -1,7 +1,7 @@
 import express, { type Router } from 'express';
 import { type Server } from 'http';
 
-import { i18nMiddleware } from '../localization/i18n';
+import { i18nMiddleware } from '../i18n/i18n-middleware';
 import { logger } from '../logging';
 import { errorMorgan, infoMorgan } from '../logging/morgan';
 import { ProcessService } from '../processes/ProcessService';

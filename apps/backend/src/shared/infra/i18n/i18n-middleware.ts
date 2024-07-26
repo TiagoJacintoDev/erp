@@ -20,8 +20,6 @@ export const i18nMiddleware = (
 
   const locale = detectLocale(requestParametersDetector, acceptLanguageDetector);
 
-  requestParametersDetector();
-
   req.language = locale;
   req.languages = locales;
   req.t = L[locale];
