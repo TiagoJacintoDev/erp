@@ -40,7 +40,7 @@ testSignupFeature('@backend', (test) => {
 
   test('Successful signup', ({ given, when, then, and }) => {
     given('I am a new user', () => {
-      signupCommand = new UserBuilder().withRandomProps().build();
+      signupCommand = new UserBuilder.Signup().withRandomProps().build();
     });
 
     when('I register with valid account details', async () => {
@@ -68,7 +68,7 @@ testSignupFeature('@backend', (test) => {
 
   test('Invalid or missing registration details', ({ given, when, then, and }) => {
     given('I am a new user', () => {
-      signupCommand = new UserBuilder().build();
+      signupCommand = new UserBuilder.Signup().build();
     });
 
     when('I register with invalid account details', async () => {
@@ -94,7 +94,7 @@ testSignupFeature('@backend', (test) => {
     given('a set of users already created accounts', async (table: AlreadyCreatedAccountTable) => {
       table.forEach((row) => {
         commands.push(
-          new UserBuilder()
+          new UserBuilder.Signup()
             .overrideProps({
               email: row.email,
             })
