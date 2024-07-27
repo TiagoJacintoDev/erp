@@ -6,7 +6,14 @@ import '@mantine/core/styles.css';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-const router = createBrowserRouter([]);
+import { SignupPage } from './pages/signup/signup.page';
+
+const router = createBrowserRouter([
+  {
+    path: '/signup',
+    element: <SignupPage />,
+  },
+]);
 
 const theme = createTheme({
   cursorType: 'pointer',
