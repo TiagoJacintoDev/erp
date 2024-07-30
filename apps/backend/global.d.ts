@@ -15,8 +15,14 @@ type ValidatorRequest = {
 
 type CustomRequest = I18NextRequest & ValidatorRequest;
 
+type Falsy = false | 0 | '' | null | undefined | 0n;
+
 declare global {
   namespace Express {
     interface Request extends CustomRequest {}
+  }
+
+  interface BooleanConstructor {
+    <T>(value: T): value is T extends Falsy ? never : T;
   }
 }
