@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express, { type Router } from 'express';
 import { type Server } from 'http';
 
@@ -5,6 +6,8 @@ import { i18nMiddleware } from '../i18n/i18n-middleware';
 import { logger } from '../logging';
 import { errorMorgan, infoMorgan } from '../logging/morgan';
 import { ProcessService } from '../processes/ProcessService';
+import { errorHandler } from './middleware/errorHandler.middleware';
+import { sendRouteNotFoundError } from './middleware/sendRouteNotFoundError.middleware';
 
 type WebServerConfig = {
   port: number;
@@ -21,19 +24,23 @@ export class WebServer {
   constructor(config: WebServerConfig) {
     this.config = config;
     this.express = express();
-    this.configureMiddleware();
-    this.setupRoutes();
+    this.configureExpress();
   }
 
-  private configureMiddleware() {
-    this.express.use(express.json());
+  private configureExpress() {
+    this.express.use(cors());
+    this.express.use(i18nMiddleware);
+
     this.express.use(errorMorgan);
     this.express.use(infoMorgan);
-    this.express.use(i18nMiddleware);
-  }
 
-  private setupRoutes() {
+    this.express.use(express.json());
+
     this.express.use(this.config.prefix || '', this.config.router);
+
+    this.express.all('*', sendRouteNotFoundError);
+
+    this.express.use(errorHandler);
   }
 
   start(): Promise<void> {

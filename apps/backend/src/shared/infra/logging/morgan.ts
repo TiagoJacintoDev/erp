@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import type express from 'express';
 import morgan from 'morgan';
 
 import { logger } from './';
+
+morgan.token('id', (_req, res: express.Response) => String(res.locals.error.id));
 
 const infoIncomingMessage = (
   tokens: morgan.TokenIndexer,
@@ -17,6 +20,7 @@ const errorIncomingMessage = (
   res: express.Response,
 ) => {
   return [
+    tokens.id(req, res),
     tokens.method(req, res),
     tokens.url(req, res),
     tokens.status(req, res),
@@ -24,8 +28,9 @@ const errorIncomingMessage = (
     '-',
     tokens['response-time'](req, res),
     'ms',
-    res.locals.errorName + ':',
-    res.locals.errorMessage,
+    res.locals.error.name + ':',
+    res.locals.error.message + '\n',
+    res.locals.error.stack,
   ].join(' ');
 };
 

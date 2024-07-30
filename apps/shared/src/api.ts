@@ -1,21 +1,16 @@
-export type EndpointResponse<TData = unknown, TError = unknown> =
-  | {
-      success: true;
-      data: TData;
-    }
-  | {
-      success: false;
-      error: TError | DefaultAPIErrorCode;
-    };
+export type Error = {
+  name: string;
+};
 
-export const enum DefaultAPIErrorCode {
-  ValidationError = 'ValidationError',
-  ServerError = 'ServerError',
-  UnexpectedError = 'UnexpectedError',
-}
+export type SuccessResponse<T> = { success: true; data?: T };
+export type ErrorResponse<T extends Error = Error> = { success: false; error: T };
 
-export function createAPIClient(apiUrl: string) {
-  return {};
-}
+export type ValidationErrorDefinition = {
+  name: 'ValidationError';
+  errors: {
+    path: (string | number)[];
+    message: string;
+  }[];
+};
 
-export type Api = ReturnType<typeof createAPIClient>;
+export type ValidationErrorResponse = ErrorResponse<ValidationErrorDefinition>;
