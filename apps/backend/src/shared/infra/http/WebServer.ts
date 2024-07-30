@@ -8,6 +8,7 @@ import { errorMorgan, infoMorgan } from '../logging/morgan';
 import { ProcessService } from '../processes/ProcessService';
 import { errorHandler } from './middleware/errorHandler.middleware';
 import { sendRouteNotFoundError } from './middleware/sendRouteNotFoundError.middleware';
+import { validatorMiddleware } from './middleware/validator.middleware';
 
 type WebServerConfig = {
   port: number;
@@ -29,12 +30,12 @@ export class WebServer {
 
   private configureExpress() {
     this.express.use(cors());
+    this.express.use(express.json());
     this.express.use(i18nMiddleware);
+    this.express.use(validatorMiddleware);
 
     this.express.use(errorMorgan);
     this.express.use(infoMorgan);
-
-    this.express.use(express.json());
 
     this.express.use(this.config.prefix || '', this.config.router);
 

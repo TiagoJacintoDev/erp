@@ -11,17 +11,13 @@ export class SignupController extends BaseController {
     super();
   }
 
-  protected async executeImpl(
-    req: express.Request,
-    res: express.Response,
-    next: express.NextFunction,
-  ): Promise<unknown> {
-    const dto = z
-      .object({
-        email: z.string(),
+  protected async executeImpl(req: express.Request, res: express.Response): Promise<unknown> {
+    const dto = req.parseBody(
+      z.object({
+        email: z.string().email(),
         password: z.string(),
-      })
-      .parse(req.body);
+      }),
+    );
 
     const result = await this.useCase.execute(dto);
 
@@ -32,15 +28,11 @@ export class SignupController extends BaseController {
 
       switch (true) {
         case error instanceof SignupErrors.EmailAlreadyExists:
-          return this.conflict(
-            res,
-            next,
-            errorsTranslation.EmailAlreadyExists({ email: error.email }),
-          );
+          return this.conflict(res, errorsTranslation.EmailAlreadyExists({ email: error.email }));
         case error instanceof ValidationError:
-          return this.fail(res, next, error.message);
+          return this.fail(res, error.message);
         default:
-          return this.fail(res, next, 'An unexpected error occurred.');
+          return this.fail(res, 'An unexpected error occurred.');
       }
     }
 
