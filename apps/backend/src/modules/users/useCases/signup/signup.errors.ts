@@ -1,5 +1,4 @@
 import { UseCaseError } from '../../../../shared/core/UseCaseError';
-import { type ModuleErrorsTranslation } from '../../../../shared/infra/i18n/i18n-module-types';
 
 export namespace SignupErrors {
   export class EmailAlreadyExists extends UseCaseError {
@@ -16,7 +15,7 @@ export namespace SignupErrors {
       EmailAlreadyExists: 'The user with email {email} already exists',
     },
     'pt-PT': {
-      EmailAlreadyExists: 'O utilizador com email {email} já existe',
+      EmailAlreadyExists: "O utilizador com o email '{email}' já existe",
     },
-  } satisfies ModuleErrorsTranslation<'users', 'signup'>;
+  };
 }

@@ -2,11 +2,11 @@ import cors from 'cors';
 import express, { type Router } from 'express';
 import { type Server } from 'http';
 
-import { i18nMiddleware } from '../i18n/i18n-middleware';
 import { logger } from '../logging';
 import { errorMorgan, infoMorgan } from '../logging/morgan';
 import { ProcessService } from '../processes/ProcessService';
 import { errorHandler } from './middleware/errorHandler.middleware';
+import { i18nMiddleware } from './middleware/i18n.middleware';
 import { sendRouteNotFoundError } from './middleware/sendRouteNotFoundError.middleware';
 import { validatorMiddleware } from './middleware/validator.middleware';
 

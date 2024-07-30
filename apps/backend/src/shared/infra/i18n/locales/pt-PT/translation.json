@@ -1,0 +1,9 @@
+{
+  "errors": {
+    "users": {
+      "signup": {
+        "email-already-exists": "O utilizador com o email {{email}} já existe"
+      }
+    }
+  }
+}

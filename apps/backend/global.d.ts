@@ -1,23 +1,23 @@
 import '@total-typescript/ts-reset';
 import 'jest-extended';
-import { Locales, type TranslationFunctions } from './src/shared/infra/i18n/i18n-types';
-import { z } from 'zod';
+import { type z } from 'zod';
+import type Resources from './src/shared/infra/i18n/resources';
+import { SetParameterType } from 'type-fest';
+import { TFunction as DefaultTFunction } from 'i18next';
 
-type I18NextRequest = {
-  language: Locales;
-  languages: Locales[];
-  t: TranslationFunctions;
-};
+declare module 'i18next' {
+  interface CustomTypeOptions {
+    resources: Resources;
+  }
+}
 
 type ValidatorRequest = {
   parseBody: <T>(schema: z.ZodType<T>) => T;
 };
 
-type CustomRequest = I18NextRequest & ValidatorRequest;
-
 declare global {
   namespace Express {
-    interface Request extends CustomRequest {}
+    interface Request extends ValidatorRequest {}
   }
 
   type Nil = null | undefined;
