@@ -1,4 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node Development",
   "extends": ["../default/dev.json", "./base.json"]
 }
