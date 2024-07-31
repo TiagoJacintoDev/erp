@@ -1,0 +1,26 @@
+{
+  "name": "@sms/i18n-config",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "pnpm run clean && tsc -b tsconfig.build.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist/**"
+  ],
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "dependencies": {
+    "i18next": "^23.12.2",
+    "i18next-fs-backend": "^2.3.1",
+    "i18next-http-middleware": "^3.6.0",
+    "zod-i18n-map": "^2.27.0"
+  },
+  "devDependencies": {
+    "@sms/eslint-config": "workspace:*",
+    "@sms/typescript-config": "workspace:*"
+  }
+}
