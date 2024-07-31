@@ -2,17 +2,17 @@
   "name": "subscription-management-system",
   "private": true,
   "scripts": {
-    "start:dev": "pnpm -r start:dev",
+    "start:dev": "pnpm -r --parallel start:dev",
     "build": "pnpm -r build",
-    "lint": "eslint . --fix",
-    "test": "pnpm -r test",
-    "test:dev": "pnpm -r test:dev",
-    "test:e2e": "pnpm -r test:e2e",
-    "test:e2e:dev": "pnpm -r test:e2e:dev",
-    "test:integration": "pnpm -r test:integration",
-    "test:integration:dev": "pnpm -r test:integration:dev",
-    "test:unit": "pnpm -r test:unit",
-    "test:unit:dev": "pnpm -r test:unit:dev"
+    "lint": "pnpm -r --parallel lint",
+    "test": "pnpm -r --parallel test",
+    "test:dev": "pnpm -r --parallel test:dev",
+    "test:e2e": "pnpm -r --parallel test:e2e",
+    "test:e2e:dev": "pnpm -r --parallel test:e2e:dev",
+    "test:integration": "pnpm -r --parallel test:integration",
+    "test:integration:dev": "pnpm -r --parallel test:integration:dev",
+    "test:unit": "pnpm -r --parallel test:unit",
+    "test:unit:dev": "pnpm -r --parallel test:unit:dev"
   },
   "dependencies": {
     "axios": "^1.7.2",
