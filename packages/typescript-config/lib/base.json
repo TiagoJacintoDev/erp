@@ -3,6 +3,7 @@
   "display": "Library Base",
   "extends": "../default/base.json",
   "compilerOptions": {
-    "declaration": true
+    "declaration": true,
+    "moduleResolution": "Node10"
   }
 }
