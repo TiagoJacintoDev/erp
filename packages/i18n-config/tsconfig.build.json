@@ -1,8 +1,5 @@
 {
   "extends": "@sms/typescript-config/lib/base.json",
-  "compilerOptions": {
-    "outDir": "./dist"
-  },
   "include": [
     "src"
   ],

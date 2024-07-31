@@ -1,6 +1,6 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import { type ResourceKey } from 'i18next';
-import path from 'path';
+import * as path from 'path';
 
 const zodBasePath = path.join(require.resolve('zod-i18n-map'), '../../locales');
 

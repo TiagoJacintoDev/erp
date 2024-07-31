@@ -3,16 +3,19 @@
   "private": true,
   "scripts": {
     "clean": "rimraf ./dist",
-    "build": "pnpm run clean && tsc -b tsconfig.build.json",
+    "build": "pnpm run clean && npm-run-all --parallel build:*",
+    "build:cjs": "tsc -b tsconfig.cjs.json",
+    "build:esm": "tsc -b tsconfig.esm.json",
     "postinstall": "pnpm run build"
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
   "files": [
     "./dist/**"
   ],
   "exports": {
-    ".": "./dist/index.js"
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
   },
   "dependencies": {
     "i18next": "^23.12.2",
