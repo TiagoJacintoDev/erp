@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "clean": "rimraf ./dist",
-    "build": "pnpm run clean && tsc -b tsconfig.build.json"
+    "build": "pnpm run clean && tsc -b tsconfig.build.json",
+    "postinstall": "pnpm run build"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -15,8 +16,10 @@
   },
   "dependencies": {
     "i18next": "^23.12.2",
+    "i18next-browser-languagedetector": "^8.0.0",
     "i18next-fs-backend": "^2.3.1",
     "i18next-http-middleware": "^3.6.0",
+    "react-i18next": "^15.0.0",
     "zod-i18n-map": "^2.27.0"
   },
   "devDependencies": {
