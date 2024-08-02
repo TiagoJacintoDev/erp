@@ -11,6 +11,8 @@ module.exports = {
     'prettier',
   ],
   rules: {
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-unsafe-enum-comparison': 'off',
     '@typescript-eslint/prefer-nullish-coalescing': [
       'error',
       {
