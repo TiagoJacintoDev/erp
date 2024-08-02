@@ -1,9 +1,10 @@
-export type Error = {
-  name: string;
+export type Error<T extends string> = {
+  name: T;
+  message?: string;
 };
 
-export type SuccessResponse<T> = { success: true; data?: T };
-export type ErrorResponse<T extends Error = Error> = { success: false; error: T };
+export type SuccessResponse<T> = { data?: T };
+export type ErrorResponse<T extends Error<string> = Error<string>> = { error: T };
 
 export type ValidationErrorDefinition = {
   name: 'ValidationError';
@@ -14,3 +15,10 @@ export type ValidationErrorDefinition = {
 };
 
 export type ValidationErrorResponse = ErrorResponse<ValidationErrorDefinition>;
+
+export type ApiErrorDefinition = {
+  name: 'ApiError';
+  message: string;
+};
+
+export type ApiErrorResponse = ErrorResponse<ApiErrorDefinition>;
