@@ -16,12 +16,18 @@ export function errorHandler(
     stack: error.stack,
   };
 
+  const name = error instanceof ApiError ? error.name : 'InternalServerError';
+  const message = error instanceof ApiError ? error.message : 'Internal server error';
+
   const response: ErrorResponse<{ name: string; message: string }> = {
-    success: false,
-    error: { ...error, message: error.message },
+    error: {
+      ...error,
+      name,
+      message,
+    },
   };
 
-  const errorStatusCode = error instanceof ApiError ? error.status : 500;
+  const statusCode = error instanceof ApiError ? error.status : 500;
 
-  res.status(errorStatusCode).json(response);
+  res.status(statusCode).json(response);
 }
