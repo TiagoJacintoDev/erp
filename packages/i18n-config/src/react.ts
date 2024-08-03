@@ -3,7 +3,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { mergeDeepLeft } from 'ramda';
 import { initReactI18next } from 'react-i18next';
 
-import { baseI18NextOptions, loadResources } from './base.js';
+import { baseI18NextOptions, loadResources } from './base';
 
 const initReactI18n = (localesPath: string) =>
   i18next

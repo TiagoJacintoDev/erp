@@ -1,3 +1,3 @@
-export * from './base.js';
-export * from './http.js';
-export * from './react.js';
+export * from './base';
+export * from './http';
+export * from './react';
