@@ -1,21 +1,19 @@
 {
   "name": "@sms/i18n-config",
   "private": true,
+  "type": "module",
   "scripts": {
-    "clean": "rimraf ./dist",
-    "build": "pnpm run clean && npm-run-all --parallel build:*",
-    "build:cjs": "tsc -b tsconfig.cjs.json",
-    "build:esm": "tsc -b tsconfig.esm.json",
-    "postinstall": "pnpm run build"
+    "start:dev": "utility-scripts-bun-watch -p ./bin -c make-scripts-available",
+    "make-scripts-available": "bun link",
+    "postinstall": "bun run make-scripts-available",
+    "lint": "eslint . --fix"
   },
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "files": [
-    "./dist/**"
-  ],
+  "bin": {
+    "i18n-config-generate-i18n-types": "./bin/generate-i18n-types.ts"
+  },
   "exports": {
-    "import": "./dist/esm/index.js",
-    "require": "./dist/cjs/index.js"
+    ".": "./src/index.ts",
+    "./*": "./src/*.ts"
   },
   "dependencies": {
     "i18next": "^23.12.2",
@@ -26,6 +24,7 @@
     "zod-i18n-map": "^2.27.0"
   },
   "devDependencies": {
+    "@sms/utility-scripts": "workspace:*",
     "@sms/eslint-config": "workspace:*",
     "@sms/typescript-config": "workspace:*"
   }
