@@ -1,5 +1,5 @@
 {
-  "extends": "@sms/typescript-config/default/base.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "jsx": "react-jsx",
     "module": "ESNext",

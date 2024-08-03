@@ -1,6 +1,0 @@
-{
-  "extends": "@sms/typescript-config/node/dev.json",
-  "include": [
-    "./"
-  ]
-}

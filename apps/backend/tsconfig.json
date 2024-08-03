@@ -1,13 +1,3 @@
 {
-  "extends": "@sms/typescript-config/node/dev.json",
-  // "compilerOptions": {
-  //   "paths": {
-  //     "@sms/shared": [
-  //       "../../shared/src"
-  //     ],
-  //   }
-  // },
-  "include": [
-    "./"
-  ],
+  "extends": "../../tsconfig.node.json"
 }

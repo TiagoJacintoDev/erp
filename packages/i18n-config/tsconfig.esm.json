@@ -1,9 +1,0 @@
-{
-  "extends": [
-    "./tsconfig.build.json",
-    "@sms/typescript-config/lib/esm.json"
-  ],
-  "compilerOptions": {
-    "outDir": "dist/esm",
-  }
-}

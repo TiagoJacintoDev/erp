@@ -1,9 +1,0 @@
-{
-  "extends": [
-    "./tsconfig.build.json",
-    "@sms/typescript-config/lib/cjs.json"
-  ],
-  "compilerOptions": {
-    "outDir": "dist/cjs",
-  }
-}
