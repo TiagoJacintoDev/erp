@@ -25,7 +25,6 @@
   },
   "devDependencies": {
     "@sms/eslint-config": "workspace:*",
-    "@sms/typescript-config": "workspace:*",
     "@swc/cli": "^0.4.0",
     "@swc/core": "^1.6.3"
   }
