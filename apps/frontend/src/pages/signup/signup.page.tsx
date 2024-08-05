@@ -9,10 +9,9 @@ import {
   TextInput,
 } from '@mantine/core';
 import { useForm, zodResolver } from '@mantine/form';
-import { useMutation } from '@tanstack/react-query';
 import { z } from 'zod';
 
-import { api, type ApiError, handleError } from '../../shared/api';
+import { api } from '../../shared/api';
 
 const schema = z.object({
   email: z.string().email(),
@@ -39,15 +38,26 @@ export function SignupPage() {
     validate: zodResolver(schema),
   });
 
-  const { mutate: signup } = useMutation({
-    mutationFn: api.signup.bind(api),
-    onError: (error: ApiError) =>
-      handleError({
-        error,
-        onNetworkError: () => alert('Network error'),
-        onServerError: () => alert('Server error'),
-        onExpectedError: alert,
-      }),
+  const { mutate: signup } = api.useSignup({
+    onNetworkError: () => alert('Network error'),
+    onServerError(error) {
+      switch (error.name) {
+        case 'ValidationError':
+          error.errors.forEach((e) => {
+            form.setErrors({
+              [e.path.join('.')]: e.message,
+            });
+          });
+          break;
+        case 'ApiError':
+          alert(error.message);
+          break;
+        default:
+          alert('Unexpected error');
+          break;
+      }
+    },
+    onSuccess: () => alert('Success'),
   });
 
   return (
