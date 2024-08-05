@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import '@mantine/core/styles.css';
 import './index.css';
+import './shared/i18n/loadI18n';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { SignupPage } from './pages/signup/signup.page';
