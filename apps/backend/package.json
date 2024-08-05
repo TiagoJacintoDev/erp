@@ -15,12 +15,12 @@
     "lint": "eslint . --fix",
     "test": "jest",
     "test:dev": "jest --watchAll",
-    "test:e2e": "jest -c jest.config.e2e.ts",
-    "test:e2e:dev": "jest -c jest.config.e2e.ts --watch",
-    "test:integration": "jest -c jest.config.integration.ts",
-    "test:integration:dev": "jest -c jest.config.integration.ts --watch",
-    "test:unit": "jest -c jest.config.unit.js",
-    "test:unit:dev": "jest -c jest.config.unit.js --watchAll",
+    "test:e2e": "jest -c jest.config.e2e.cjs",
+    "test:e2e:dev": "jest -c jest.config.e2e.cjs --watch",
+    "test:integration": "jest -c jest.config.integration.cjs",
+    "test:integration:dev": "jest -c jest.config.integration.cjs --watch",
+    "test:unit": "jest -c jest.config.unit.cjs",
+    "test:unit:dev": "jest -c jest.config.unit.cjs --watchAll",
     "postinstall": "pnpm run generate-prisma-client"
   },
   "dependencies": {

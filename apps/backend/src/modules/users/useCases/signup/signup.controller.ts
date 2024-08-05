@@ -24,11 +24,12 @@ export class SignupController extends BaseController {
     if (result.isErr()) {
       const error = result.error;
 
-      const errorsTranslation = req.t.errors.users.signup;
-
       switch (true) {
         case error instanceof SignupErrors.EmailAlreadyExists:
-          return this.conflict(res, errorsTranslation.EmailAlreadyExists({ email: error.email }));
+          return this.conflict(
+            res,
+            req.t('errors.users.signup.email-already-exists', { email: error.email }),
+          );
         case error instanceof ValidationError:
           return this.fail(res, error.message);
         default:
