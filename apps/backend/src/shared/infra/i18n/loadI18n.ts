@@ -1,4 +1,6 @@
-import { initHttpI18n } from '@sms/i18n-config';
-import path from 'path';
+import i18next from 'i18next';
+import middleware from 'i18next-http-middleware';
 
-void initHttpI18n(path.join(__dirname, './locales'));
+void i18next.use(middleware.LanguageDetector).init({
+  fallbackLng: 'en',
+});
