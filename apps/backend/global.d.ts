@@ -2,12 +2,9 @@ import '@total-typescript/ts-reset';
 import '@sms/typescript-augments';
 import 'jest-extended';
 import { type z } from 'zod';
-import type Resources from './src/shared/infra/i18n/resources';
 
 declare module 'i18next' {
-  interface CustomTypeOptions {
-    resources: Resources;
-  }
+  interface CustomTypeOptions {}
 }
 
 type ValidatorRequest = {
