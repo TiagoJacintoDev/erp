@@ -18,6 +18,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: frontend-build-latest
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           path: ./frontend-build
 
       - name: Deploy to Azure
