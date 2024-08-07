@@ -10,7 +10,7 @@
     "start:dev:bun": "bun ./prepareDevCli.ts && dotenv -e .env.development -- bun --watch ./src",
     "start:prod": "dotenv -e .env.production -- bun ./src/index.ts",
     "clean": "rimraf ./dist",
-    "build": "pnpm run clean && tsc -b tsconfig.build.json && tsc-alias -p tsconfig.build.json -r ../../tsAliasesReplacer.js",
+    "build_deprecated": "pnpm run clean && tsc -b tsconfig.build.json && tsc-alias -p tsconfig.build.json -r ../../tsAliasesReplacer.js",
     "postbuild": "copyfiles -u 1 src/**/*.json dist/",
     "lint": "eslint . --fix",
     "test": "jest",

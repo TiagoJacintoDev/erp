@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "clean": "rimraf ./dist",
-    "build": "pnpm run clean && tsc -b tsconfig.build.json && tsc-alias -p tsconfig.build.json -r ../../tsAliasesReplacer.js"
+    "build_deprecated": "pnpm run clean && tsc -b tsconfig.build.json && tsc-alias -p tsconfig.build.json -r ../../tsAliasesReplacer.js"
   },
   "devDependencies": {
     "backend": "workspace:*",
