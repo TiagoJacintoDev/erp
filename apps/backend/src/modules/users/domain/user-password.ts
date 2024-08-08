@@ -1,8 +1,8 @@
+import { type Result, err, ok } from '@sms/shared/src/core/Result';
 import { Validator } from '@sms/shared/src/core/Validator';
+import { type ValidationError } from '@sms/shared/src/domain/errors/ValidationError';
 import { type SetOptional } from 'type-fest';
 
-import { err, ok, type Result } from '../../../shared/core/Result';
-import { type ValidationError } from '../../../shared/domain/errors/ValidationError';
 import { ValueObject } from '../../../shared/domain/ValueObject';
 import { type PasswordHasher } from '../services/hasher/passwordHasher.service';
 

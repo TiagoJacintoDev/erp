@@ -1,5 +1,3 @@
-import { type Nil } from '@sms/shared/src/core/Nil';
-
 export type Result<T, E> = Ok<T, E> | Err<T, E>;
 
 export class Ok<T, E> {

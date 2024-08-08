@@ -1,5 +1,6 @@
-import { err, ok, type Result } from '../../../shared/core/Result';
-import { ValidationError } from '../../../shared/domain/errors/ValidationError';
+import { type Result, err, ok } from '@sms/shared/src/core/Result';
+import { ValidationError } from '@sms/shared/src/domain/errors/ValidationError';
+
 import { ValueObject } from '../../../shared/domain/ValueObject';
 
 type UserEmailProps = {

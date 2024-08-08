@@ -1,3 +1,4 @@
+import { ValidationError } from '@sms/shared/src/domain/errors/ValidationError';
 import { type SignupDTO } from '@sms/shared/src/modules/users/signup/signup.dto';
 import {
   type AlreadyCreatedAccountTable,
@@ -7,7 +8,6 @@ import { DatabaseFixture } from '@sms/shared/tests/support/fixtures/database.fix
 
 import { UserBuilder } from '../../../../../tests/support/builders/user.builder';
 import { type UseCaseResponse } from '../../../../../tests/support/types/UseCaseResponse';
-import { ValidationError } from '../../../../shared/domain/errors/ValidationError';
 import { CompositionRoot } from '../../../../shared/infra/CompositionRoot';
 import { SignupErrors } from './signup.errors';
 

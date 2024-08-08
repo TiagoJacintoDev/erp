@@ -1,6 +1,7 @@
-import { err, ok, type Result } from '../../../../shared/core/Result';
+import { err, ok, type Result } from '@sms/shared/src/core/Result';
+import { type ValidationError } from '@sms/shared/src/domain/errors/ValidationError';
+
 import { type UseCase } from '../../../../shared/core/UseCase';
-import { type ValidationError } from '../../../../shared/domain/errors/ValidationError';
 import { type User } from '../../domain/user';
 import { UserEmail } from '../../domain/user-email';
 import { type UserRepository } from '../../repositories/user/user.repository';

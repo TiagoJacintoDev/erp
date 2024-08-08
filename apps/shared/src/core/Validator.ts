@@ -1,5 +1,5 @@
-import { err, ok, Result } from 'backend/src/shared/core/Result';
-import { ValidationError } from 'backend/src/shared/domain/errors/ValidationError';
+import { err, ok, Result } from './Result';
+import { ValidationError } from '../domain/errors/ValidationError';
 
 class IsLessThanMinLengthError extends ValidationError {
   constructor(public readonly min: number) {
