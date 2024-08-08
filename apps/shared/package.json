@@ -7,7 +7,6 @@
     "build_deprecated": "pnpm run clean && tsc -b tsconfig.build.json && tsc-alias -p tsconfig.build.json -r ../../tsAliasesReplacer.js"
   },
   "devDependencies": {
-    "backend": "workspace:*",
     "@types/command-exists": "^1.2.3",
     "command-exists": "^1.2.9"
   }
