@@ -27,7 +27,7 @@ export class CompositionRoot {
   private constructor() {
     this.database = database;
     this.webServer = new WebServer({
-      port: 3000,
+      port: 8080,
       prefix: '/api/v1',
       router: v1Router,
     });
