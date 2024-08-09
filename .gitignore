@@ -17,6 +17,12 @@ dist
 /.pnp
 .pnp.*
 
+# Turborepo
+.turbo
+
+# Docker
+*.tar
+
 # testing
 coverage
 
