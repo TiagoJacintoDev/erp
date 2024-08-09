@@ -1,28 +1,6 @@
 {
   "name": "@sms/typescript-augments",
   "private": true,
-  "scripts": {
-    "clean": "rimraf ./dist",
-    "build": "pnpm run clean && tsx scripts/build.ts",
-    "postinstall": "pnpm run build"
-  },
-  "main": "./dist/recommended.js",
-  "types": "./dist/recommended.d.ts",
-  "files": [
-    "./dist/**"
-  ],
-  "exports": {
-    ".": {
-      "import": "./dist/recommended.mjs",
-      "default": "./dist/recommended.js",
-      "types": "./dist/recommended.d.ts"
-    },
-    "./*": {
-      "import": "./dist/*.mjs",
-      "default": "./dist/*.js",
-      "types": "./dist/*.d.ts"
-    }
-  },
   "devDependencies": {
     "@sms/eslint-config": "workspace:*",
     "@swc/cli": "^0.4.0",
