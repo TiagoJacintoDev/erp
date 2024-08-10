@@ -2,8 +2,6 @@
   "name": "@sms/typescript-augments",
   "private": true,
   "devDependencies": {
-    "@sms/eslint-config": "workspace:*",
-    "@swc/cli": "^0.4.0",
-    "@swc/core": "^1.6.3"
+    "@sms/eslint-config": "workspace:*"
   }
 }
