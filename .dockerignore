@@ -6,3 +6,4 @@ tests/
 *.spec.ts*
 *.test.ts*
 node_modules
+infrastructure/
