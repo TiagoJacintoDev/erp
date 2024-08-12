@@ -15,7 +15,7 @@ WORKDIR /app
 # Install dependencies
 COPY --from=builder /app/out/full/ .
 COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
-RUN pnpm install --no-frozen-lockfile
+RUN pnpm install --frozen-lockfile
 
 # Uncomment and use build args to enable remote caching
 # ARG TURBO_TEAM
