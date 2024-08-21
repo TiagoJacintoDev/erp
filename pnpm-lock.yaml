@@ -177,7 +177,7 @@ importers:
         version: link:../../packages/jest-config
       '@sms/shared':
         specifier: workspace:*
-        version: link:../shared
+        version: link:../../packages/shared
       '@sms/typescript-augments':
         specifier: workspace:*
         version: link:../../packages/typescript-augments
@@ -256,7 +256,7 @@ importers:
         version: link:../../packages/eslint-config
       '@sms/shared':
         specifier: workspace:*
-        version: link:../shared
+        version: link:../../packages/shared
       '@sms/typescript-augments':
         specifier: workspace:*
         version: link:../../packages/typescript-augments
@@ -309,7 +309,11 @@ importers:
         specifier: ^0.10.1
         version: 0.10.1
 
-  apps/shared:
+  packages/eslint-config: {}
+
+  packages/jest-config: {}
+
+  packages/shared:
     devDependencies:
       '@types/command-exists':
         specifier: ^1.2.3
@@ -317,10 +321,6 @@ importers:
       command-exists:
         specifier: ^1.2.9
         version: 1.2.9
-
-  packages/eslint-config: {}
-
-  packages/jest-config: {}
 
   packages/typescript-augments:
     devDependencies:

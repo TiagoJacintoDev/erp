@@ -1,6 +1,6 @@
 import { DefaultAzureCredential } from '@azure/identity';
 import { SecretClient } from '@azure/keyvault-secrets';
-import { asyncMapObject } from '@sms/shared/src/utils/mapObject';
+import { asyncMapObject } from '../../utils/mapObject';
 
 const vaultUrl = 'https://kv-subms.vault.azure.net';
 
