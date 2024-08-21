@@ -32,7 +32,7 @@ export class CompositionRoot {
       router: v1Router,
     });
     this.config = config;
-    logger.info(`[CompositionRoot] Running in ${this.config.env} environment.`);
+    logger.info(`[CompositionRoot] Running in ${this.config.environment} environment.`);
 
     logger.info('[CompositionRoot] Setting up subscriptions...');
     this.setupSubscriptions();

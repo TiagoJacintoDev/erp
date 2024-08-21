@@ -1,13 +1,14 @@
 import { PrismaClient } from '@prisma/client';
 
-import { type Config } from '../config';
+import { type ProductionConfig } from '../config';
 
 export class Database {
   private readonly connection: PrismaClient;
 
-  constructor(config: Config) {
+  constructor(config: ProductionConfig) {
     this.connection = new PrismaClient({
-      log: config.env === 'development' ? ['query', 'error', 'warn'] : ['error'],
+      log: ['error'],
+      datasourceUrl: config.env.DATABASE_URL,
     });
   }
 

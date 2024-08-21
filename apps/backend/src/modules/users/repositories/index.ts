@@ -7,7 +7,7 @@ import { type UserRepository } from './user/user.repository';
 
 let userRepository: UserRepository;
 
-if (config.shouldBuildFakeDependency()) {
+if (config.shouldBuildFakeDependency) {
   userRepository = new InMemoryUserRepository();
 } else {
   userRepository = new PrismaUserRepository(database.getConnection(), prismaUserMapper);

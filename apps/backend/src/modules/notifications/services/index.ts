@@ -5,10 +5,10 @@ import { ProductionEmailService } from './implementations/ProductionEmailService
 
 let emailService: EmailService;
 
-if (config.shouldBuildFakeDependency()) {
+if (config.shouldBuildFakeDependency) {
   emailService = new FakeEmailService();
 } else {
-  emailService = new ProductionEmailService();
+  emailService = new ProductionEmailService(config.env);
 }
 
 export { emailService };

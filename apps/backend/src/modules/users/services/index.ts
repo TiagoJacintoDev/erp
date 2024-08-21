@@ -5,7 +5,7 @@ import { type PasswordHasher } from './hasher/passwordHasher.service';
 
 let passwordHasher: PasswordHasher;
 
-if (config.shouldBuildFakeDependency()) {
+if (config.shouldBuildFakeDependency) {
   passwordHasher = new FakePasswordHasher();
 } else {
   passwordHasher = new BCryptPasswordHasher();

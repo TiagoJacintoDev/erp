@@ -3,7 +3,7 @@ import { WinstonLogger } from './implementations/WinstonLogger';
 import { type Logger } from './logger';
 
 const logger: Logger = new WinstonLogger({
-  isDevelopment: config.env === 'development',
+  isDevelopment: config.environment === 'development',
 });
 
 export { logger };
