@@ -6,10 +6,9 @@ resource "azurerm_container_registry" "acr" {
   location            = local.location.main
 }
 
-
 locals {
-  repository_url    = "https://github.com/TiagoJacintoDev/subscription-management-system.git#main"
-  latest_image_name = "${var.image_name}:latest"
+  repository_url            = "https://github.com/TiagoJacintoDev/subscription-management-system.git#main"
+  latest_backend_image_name = "${var.backend_image_name}:latest"
 }
 
 resource "azurerm_container_registry_task" "import_backend_image_to_acr" {
@@ -23,8 +22,8 @@ resource "azurerm_container_registry_task" "import_backend_image_to_acr" {
   docker_step {
     dockerfile_path      = "apps/backend/Dockerfile"
     context_path         = local.repository_url
-    context_access_token = var.gh_token
-    image_names          = ["${var.image_name}:{{.Run.ID}}", local.latest_image_name]
+    context_access_token = var.github_token
+    image_names          = ["${var.backend_image_name}:{{.Run.ID}}", local.latest_backend_image_name]
   }
 
   source_trigger {
@@ -34,7 +33,7 @@ resource "azurerm_container_registry_task" "import_backend_image_to_acr" {
     source_type    = "Github"
 
     authentication {
-      token      = var.gh_token
+      token      = var.github_token
       token_type = "PAT"
     }
   }
@@ -73,7 +72,7 @@ resource "azurerm_container_app" "backend" {
   template {
     container {
       name   = "sms-backend"
-      image  = "${azurerm_container_registry.acr.login_server}/${local.latest_image_name}"
+      image  = "${azurerm_container_registry.acr.login_server}/${local.latest_backend_image_name}"
       cpu    = local.resource_level.L1.cpu
       memory = local.resource_level.L1.memory
     }
