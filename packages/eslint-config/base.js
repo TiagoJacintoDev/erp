@@ -32,7 +32,12 @@ module.exports = {
         ignoreRestArgs: true,
       },
     ],
-    '@typescript-eslint/no-empty-function': 'warn',
+    '@typescript-eslint/no-empty-function': [
+      'warn',
+      {
+        allow: ['constructors'],
+      },
+    ],
     '@typescript-eslint/array-type': 'off',
     '@typescript-eslint/consistent-type-definitions': 'off',
     '@typescript-eslint/consistent-type-imports': [
