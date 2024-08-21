@@ -19,6 +19,6 @@ export function prepareDev(env = '.env.development'): void {
   if (env === '.env.development') return;
 
   execSync('docker-compose up --build -d', execParams);
-  execSync(`dotenv -e ${env} -- npm run generate-prisma-client`, execParams);
+  execSync(`dotenv -e ${env} -- npm run prisma:generate:client`, execParams);
   execSync(`dotenv -e ${env} -- npm run migrate`, execParams);
 }

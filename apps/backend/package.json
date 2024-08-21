@@ -23,7 +23,7 @@
     "test:integration:dev": "jest -c jest.config.integration.cjs --watch",
     "test:unit": "jest -c jest.config.unit.cjs",
     "test:unit:dev": "jest -c jest.config.unit.cjs --watchAll",
-    "postinstall": "pnpm run generate-prisma-client"
+    "postinstall": "pnpm run prisma:generate:client"
   },
   "dependencies": {
     "@prisma/client": "^5.15.1",
