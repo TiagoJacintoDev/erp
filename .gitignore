@@ -2,8 +2,8 @@
 
 # dotenv environment variable files
 
-.env*
-!.env.example
+*.env*
+!*.env.example*
 
 # Dependency directories
 
