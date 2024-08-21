@@ -26,6 +26,7 @@ export class WebServer {
     this.config = config;
     this.express = express();
     this.configureExpress();
+    this.configureSignals();
   }
 
   private configureExpress() {
@@ -42,6 +43,11 @@ export class WebServer {
     this.express.all('*', sendRouteNotFoundError);
 
     this.express.use(errorHandler);
+  }
+
+  private configureSignals() {
+    process.on('SIGTERM', () => this.stop());
+    process.on('SIGINT', () => this.stop());
   }
 
   start(): Promise<void> {
