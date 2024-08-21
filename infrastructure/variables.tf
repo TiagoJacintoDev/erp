@@ -9,5 +9,6 @@ variable "backend_image_name" {
 }
 
 variable "github_token" {
-  type = string
+  type      = string
+  sensitive = true
 }
