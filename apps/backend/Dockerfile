@@ -1,11 +1,11 @@
 FROM node:20 AS node
 
 FROM node AS base
-RUN npm install -g pnpm
+RUN npm install -g pnpm@9.0.6
 
 FROM base AS builder
 WORKDIR /app
-RUN npm install -g turbo
+RUN npm install -g turbo@2.0.12
 COPY . .
 RUN turbo prune backend --docker
 
@@ -27,11 +27,13 @@ RUN pnpm install --frozen-lockfile
 FROM base AS runner
 WORKDIR /app
 
-RUN addgroup --system --gid 1001 expressjs
-RUN adduser --system --uid 1001 expressjs
+RUN addgroup --system --gid 1001 expressjs \
+ && adduser --system --uid 1001 expressjs
 USER expressjs
 
 COPY --from=installer --chown=expressjs:expressjs /app .
 
 EXPOSE 8080
-CMD pnpm --filter backend start:prod
+CMD ["pnpm", "--filter", "backend", "start:prod:bun"]
+
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD curl -f http://localhost:8080/api/v1/health || exit 1
