@@ -1,4 +1,4 @@
-import { type Maybe } from '@sms/shared/src/core/Maybe';
+import { createEnv } from '@sms/shared/src/utils/createEnv';
 import { z } from 'zod';
 
 import { getMultipleAzureKeyVaultSecretsValue } from '../../env/production/getAzureKeyVaultSecretsValue';
@@ -12,7 +12,7 @@ export type ProductionEnvVariables = {
   MAIL_SENDER_EMAIL: string;
   MAIL_SENDER_AUTH_EMAIL: string;
   MAIL_SENDER_AUTH_PASSWORD: string;
-  DATABASE_URL: `postgres://${string}:${string}@${string}:5432/${string}?schema=public&sslmode=require`;
+  DATABASE_URL: string;
 };
 
 export type DevelopmentConfig = {
@@ -38,8 +38,6 @@ export type Config = DevelopmentConfig | TestConfig | ProductionConfig;
 export type Environment = 'development' | 'test' | 'production' | undefined;
 
 const environment = (process.env.NODE_ENV as Environment) || 'development';
-
-console.log('Environment:', environment);
 
 let config: Config;
 
@@ -84,7 +82,7 @@ switch (environment) {
           MAIL_SENDER_EMAIL: z.string().email(),
           MAIL_SENDER_AUTH_EMAIL: z.string(),
           MAIL_SENDER_AUTH_PASSWORD: z.string(),
-          DATABASE_URL: z.literal(DATABASE_URL),
+          DATABASE_URL: z.string(),
         }),
         runtimeEnv: {
           MAIL_SENDER_SERVICE: process.env.MAIL_SENDER_SERVICE,
@@ -111,14 +109,3 @@ switch (environment) {
 }
 
 export { config };
-
-type CreateEnvOptions<T extends z.AnyZodObject> = {
-  schema: T;
-  runtimeEnv: Record<keyof z.infer<T>, Maybe<string>>;
-};
-
-function createEnv<T extends z.AnyZodObject>(opts: CreateEnvOptions<T>) {
-  const env = opts.schema.parse(opts.runtimeEnv) as z.infer<T>;
-
-  return env;
-}
