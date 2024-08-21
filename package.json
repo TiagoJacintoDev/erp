@@ -16,16 +16,16 @@
     "trunk": "trunk"
   },
   "dependencies": {
+    "@azure/identity": "^4.4.1",
+    "@azure/keyvault-secrets": "^4.8.0",
     "axios": "^1.7.2",
     "ramda": "^0.30.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
-    "@swc/core": "^1.6.3",
-    "@swc/jest": "^0.2.36",
-    "@trunkio/launcher": "^1.3.1",
     "@total-typescript/ts-reset": "^0.5.1",
+    "@trunkio/launcher": "^1.3.1",
     "@types/eslint": "^8.56.10",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.14.2",
