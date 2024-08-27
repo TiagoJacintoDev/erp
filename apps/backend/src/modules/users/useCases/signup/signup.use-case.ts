@@ -1,5 +1,4 @@
 import { type UseCase } from '@/src/shared/core/UseCase';
-import { type Nil } from '@sms/shared/src/core/Nil';
 import { err, ok, Result } from '@sms/shared/src/core/Result';
 import { type ValidationError } from '@sms/shared/src/domain/errors/ValidationError';
 import { type SignupDTO } from '@sms/shared/src/modules/users/signup/signup.dto';
