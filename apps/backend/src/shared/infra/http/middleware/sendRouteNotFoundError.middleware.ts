@@ -1,4 +1,4 @@
-import { HttpStatusCode } from '@sms/shared/src/constants/HttpStatusCode';
+import { HttpStatusCode } from '@erp/shared/src/constants/HttpStatusCode';
 import type express from 'express';
 
 import { ApiError } from '../ApiError';

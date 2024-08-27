@@ -1,4 +1,4 @@
-import { createEnv } from '@sms/shared/src/utils/createEnv';
+import { createEnv } from '@erp/shared/src/utils/createEnv';
 import { z } from 'zod';
 
 export const config = {

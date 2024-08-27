@@ -22,9 +22,9 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^26.0.1",
-    "@sms/eslint-config": "workspace:*",
-    "@sms/shared": "workspace:*",
-    "@sms/typescript-augments": "workspace:*",
+    "@erp/eslint-config": "workspace:*",
+    "@erp/shared": "workspace:*",
+    "@erp/typescript-augments": "workspace:*",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.15.0",

@@ -1,5 +1,5 @@
 import { BaseController } from '@/src/shared/infra/http/BaseController';
-import { ValidationError } from '@sms/shared/src/domain/errors/ValidationError';
+import { ValidationError } from '@erp/shared/src/domain/errors/ValidationError';
 import type express from 'express';
 import z from 'zod';
 

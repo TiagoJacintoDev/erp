@@ -1,5 +1,5 @@
 {
-  "name": "@sms/shared",
+  "name": "@erp/shared",
   "type": "module",
   "private": true,
   "scripts": {

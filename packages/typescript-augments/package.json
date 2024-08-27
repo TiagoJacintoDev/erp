@@ -1,7 +1,7 @@
 {
-  "name": "@sms/typescript-augments",
+  "name": "@erp/typescript-augments",
   "private": true,
   "devDependencies": {
-    "@sms/eslint-config": "workspace:*"
+    "@erp/eslint-config": "workspace:*"
   }
 }

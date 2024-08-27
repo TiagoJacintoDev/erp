@@ -1,5 +1,5 @@
 {
-  "name": "subscription-management-system",
+  "name": "erp",
   "private": true,
   "scripts": {
     "start:dev": "turbo run start:dev",

@@ -1,11 +1,11 @@
 variable "resource_suffix" {
   type    = string
-  default = "subms"
+  default = "tj-erp"
 }
 
 variable "backend_image_name" {
   type    = string
-  default = "sms-backend"
+  default = "erp-backend"
 }
 
 variable "github_token" {

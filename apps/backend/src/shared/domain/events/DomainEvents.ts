@@ -1,4 +1,4 @@
-import { type Maybe } from '@sms/shared/src/core/Maybe';
+import { type Maybe } from '@erp/shared/src/core/Maybe';
 
 import { type AggregateRoot } from '../AggregateRoot';
 import { type UniqueEntityID } from '../UniqueEntityID';

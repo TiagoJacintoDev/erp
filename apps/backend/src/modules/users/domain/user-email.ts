@@ -1,5 +1,5 @@
-import { type Result, err, ok } from '@sms/shared/src/core/Result';
-import { ValidationError } from '@sms/shared/src/domain/errors/ValidationError';
+import { type Result, err, ok } from '@erp/shared/src/core/Result';
+import { ValidationError } from '@erp/shared/src/domain/errors/ValidationError';
 
 import { ValueObject } from '../../../shared/domain/ValueObject';
 

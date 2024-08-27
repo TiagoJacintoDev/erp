@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { type SignupDTO } from '@sms/shared/src/modules/users/signup/signup.dto';
+import { type SignupDTO } from '@erp/shared/src/modules/users/signup/signup.dto';
 
 import { type ConfirmAccountDTO } from '../../../src/modules/users/useCases/confirm-account/confirmAccount.dto';
 import { Builder } from '../Builder';

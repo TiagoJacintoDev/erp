@@ -1,6 +1,6 @@
 import { DomainEvents } from '@/src/shared/domain/events/DomainEvents';
 import { type UniqueEntityID } from '@/src/shared/domain/UniqueEntityID';
-import { type AsyncMaybe } from '@sms/shared/src/core/Maybe';
+import { type AsyncMaybe } from '@erp/shared/src/core/Maybe';
 
 import { type User } from '../../../domain/user';
 import { type UserEmail } from '../../../domain/user-email';

@@ -1,7 +1,7 @@
 import { type UseCase } from '@/src/shared/core/UseCase';
-import { err, ok, Result } from '@sms/shared/src/core/Result';
-import { type ValidationError } from '@sms/shared/src/domain/errors/ValidationError';
-import { type SignupDTO } from '@sms/shared/src/modules/users/signup/signup.dto';
+import { err, ok, Result } from '@erp/shared/src/core/Result';
+import { type ValidationError } from '@erp/shared/src/domain/errors/ValidationError';
+import { type SignupDTO } from '@erp/shared/src/modules/users/signup/signup.dto';
 
 import { User } from '../../domain/user';
 import { UserEmail } from '../../domain/user-email';

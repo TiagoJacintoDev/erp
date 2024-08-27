@@ -1,5 +1,5 @@
-import { type ValidationErrorDefinition } from '@sms/shared/src/api';
-import { HttpStatusCode } from '@sms/shared/src/constants/HttpStatusCode';
+import { type ValidationErrorDefinition } from '@erp/shared/src/api';
+import { HttpStatusCode } from '@erp/shared/src/constants/HttpStatusCode';
 import type express from 'express';
 import z from 'zod';
 import { makeZodI18nMap } from 'zod-i18n-map';

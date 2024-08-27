@@ -2,8 +2,8 @@ import {
   type ErrorResponse,
   type ValidationErrorResponse,
   type ApiErrorResponse,
-} from '@sms/shared/src/api';
-import { type SignupDTO } from '@sms/shared/src/modules/users/signup/signup.dto';
+} from '@erp/shared/src/api';
+import { type SignupDTO } from '@erp/shared/src/modules/users/signup/signup.dto';
 import {
   type QueryKey,
   useMutation,

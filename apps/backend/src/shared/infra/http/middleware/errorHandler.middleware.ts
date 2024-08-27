@@ -1,4 +1,4 @@
-import { type ErrorResponse } from '@sms/shared/src/api';
+import { type ErrorResponse } from '@erp/shared/src/api';
 import type express from 'express';
 
 import { ApiError } from '../ApiError';

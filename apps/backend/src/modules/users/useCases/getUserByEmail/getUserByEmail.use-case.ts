@@ -1,6 +1,6 @@
 import { type UseCase } from '@/src/shared/core/UseCase';
-import { err, ok, type Result } from '@sms/shared/src/core/Result';
-import { type ValidationError } from '@sms/shared/src/domain/errors/ValidationError';
+import { err, ok, type Result } from '@erp/shared/src/core/Result';
+import { type ValidationError } from '@erp/shared/src/domain/errors/ValidationError';
 
 import { type User } from '../../domain/user';
 import { UserEmail } from '../../domain/user-email';

@@ -3,7 +3,7 @@ terraform {
     organization = "TiagoJacinto"
 
     workspaces {
-      name = "subscription-management-system"
+      name = "erp"
     }
   }
 }

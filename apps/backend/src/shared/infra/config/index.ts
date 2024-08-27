@@ -1,5 +1,5 @@
-import { getMultipleAzureKeyVaultSecretsValue } from '@sms/shared/src/env/production/getAzureKeyVaultSecretsValue';
-import { createEnv } from '@sms/shared/src/utils/createEnv';
+import { getMultipleAzureKeyVaultSecretsValue } from '@erp/shared/src/env/production/getAzureKeyVaultSecretsValue';
+import { createEnv } from '@erp/shared/src/utils/createEnv';
 import { z } from 'zod';
 
 export type DevelopmentEnvVariables = Record<string, never>;

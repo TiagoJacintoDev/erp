@@ -1,6 +1,6 @@
-import { type Result, err, ok } from '@sms/shared/src/core/Result';
-import { Validator } from '@sms/shared/src/core/Validator';
-import { type ValidationError } from '@sms/shared/src/domain/errors/ValidationError';
+import { type Result, err, ok } from '@erp/shared/src/core/Result';
+import { Validator } from '@erp/shared/src/core/Validator';
+import { type ValidationError } from '@erp/shared/src/domain/errors/ValidationError';
 import { type SetOptional } from 'type-fest';
 
 import { ValueObject } from '../../../shared/domain/ValueObject';

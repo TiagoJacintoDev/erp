@@ -7,7 +7,7 @@ resource "azurerm_container_registry" "acr" {
 }
 
 locals {
-  repository_url            = "https://github.com/TiagoJacintoDev/subscription-management-system.git#main"
+  repository_url            = "https://github.com/TiagoJacintoDev/erp.git#main"
   latest_backend_image_name = "${var.backend_image_name}:latest"
 }
 
@@ -71,7 +71,7 @@ resource "azurerm_container_app" "backend" {
   }
   template {
     container {
-      name   = "sms-backend"
+      name   = "erp-backend"
       image  = "${azurerm_container_registry.acr.login_server}/${local.latest_backend_image_name}"
       cpu    = local.resource_level.L1.cpu
       memory = local.resource_level.L1.memory

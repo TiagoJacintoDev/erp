@@ -1,5 +1,5 @@
 import '@total-typescript/ts-reset';
-import '@sms/typescript-augments/src/recommended';
+import '@erp/typescript-augments/src/recommended';
 import 'jest-extended';
 import { type z } from 'zod';
 

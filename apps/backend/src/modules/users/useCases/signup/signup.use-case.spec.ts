@@ -1,13 +1,13 @@
 import { CompositionRoot } from '@/src/shared/infra/CompositionRoot';
 import { UserBuilder } from '@/tests/support/builders/user.builder';
 import { type UseCaseResponse } from '@/tests/support/types/UseCaseResponse';
-import { ValidationError } from '@sms/shared/src/domain/errors/ValidationError';
-import { type SignupDTO } from '@sms/shared/src/modules/users/signup/signup.dto';
+import { ValidationError } from '@erp/shared/src/domain/errors/ValidationError';
+import { type SignupDTO } from '@erp/shared/src/modules/users/signup/signup.dto';
 import {
   type AlreadyCreatedAccountTable,
   testSignupFeature,
-} from '@sms/shared/tests/modules/users/features/signup/loadSignupFeature';
-import { DatabaseFixture } from '@sms/shared/tests/support/fixtures/database.fixture';
+} from '@erp/shared/tests/modules/users/features/signup/loadSignupFeature';
+import { DatabaseFixture } from '@erp/shared/tests/support/fixtures/database.fixture';
 
 import { SignupErrors } from './signup.errors';
 

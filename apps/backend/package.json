@@ -44,9 +44,9 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
-    "@sms/jest-config": "workspace:*",
-    "@sms/shared": "workspace:*",
-    "@sms/typescript-augments": "workspace:*",
+    "@erp/jest-config": "workspace:*",
+    "@erp/shared": "workspace:*",
+    "@erp/typescript-augments": "workspace:*",
     "@types/bcrypt": "^5.0.2",
     "@types/bun": "latest",
     "@types/cors": "^2.8.17",

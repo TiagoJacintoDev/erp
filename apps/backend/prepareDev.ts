@@ -1,4 +1,4 @@
-import { checkDocker } from '@sms/shared/src/scripts/checkDocker';
+import { checkDocker } from '@erp/shared/src/scripts/checkDocker';
 import { execSync } from 'child_process';
 import path from 'path';
 
