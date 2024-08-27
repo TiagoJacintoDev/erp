@@ -1,8 +1,8 @@
+import { BaseController } from '@/src/shared/infra/http/BaseController';
 import { ValidationError } from '@sms/shared/src/domain/errors/ValidationError';
 import type express from 'express';
 import z from 'zod';
 
-import { BaseController } from '../../../../shared/infra/http/BaseController';
 import { SignupErrors } from './signup.errors';
 import { type SignupUseCase } from './signup.use-case';
 

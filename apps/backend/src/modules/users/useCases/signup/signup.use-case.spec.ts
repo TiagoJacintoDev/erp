@@ -1,3 +1,6 @@
+import { CompositionRoot } from '@/src/shared/infra/CompositionRoot';
+import { UserBuilder } from '@/tests/support/builders/user.builder';
+import { type UseCaseResponse } from '@/tests/support/types/UseCaseResponse';
 import { ValidationError } from '@sms/shared/src/domain/errors/ValidationError';
 import { type SignupDTO } from '@sms/shared/src/modules/users/signup/signup.dto';
 import {
@@ -6,9 +9,6 @@ import {
 } from '@sms/shared/tests/modules/users/features/signup/loadSignupFeature';
 import { DatabaseFixture } from '@sms/shared/tests/support/fixtures/database.fixture';
 
-import { UserBuilder } from '../../../../../tests/support/builders/user.builder';
-import { type UseCaseResponse } from '../../../../../tests/support/types/UseCaseResponse';
-import { CompositionRoot } from '../../../../shared/infra/CompositionRoot';
 import { SignupErrors } from './signup.errors';
 
 type SignupResponse = UseCaseResponse<

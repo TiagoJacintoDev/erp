@@ -4,18 +4,12 @@
     "jsx": "react-jsx",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "noEmit": true
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "noEmit": true,
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
-  "include": [
-    "./"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "include": ["./"],
+  "exclude": ["node_modules", "dist"]
 }

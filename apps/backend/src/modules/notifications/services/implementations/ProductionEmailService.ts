@@ -1,6 +1,6 @@
+import { type ProductionEnvVariables } from '@/src/shared/infra/config';
 import nodemailer from 'nodemailer';
 
-import { type ProductionEnvVariables } from '../../../../shared/infra/config';
 import { type EmailService, type SendEmailInput } from '../email.service';
 
 export class ProductionEmailService implements EmailService {

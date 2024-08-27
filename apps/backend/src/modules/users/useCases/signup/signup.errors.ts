@@ -1,4 +1,4 @@
-import { UseCaseError } from '../../../../shared/core/UseCaseError';
+import { UseCaseError } from '@/src/shared/core/UseCaseError';
 
 export namespace SignupErrors {
   export class EmailAlreadyExists extends UseCaseError {

@@ -1,4 +1,5 @@
-import { type UseCase } from '../../../../shared/core/UseCase';
+import { type UseCase } from '@/src/shared/core/UseCase';
+
 import { type EmailService } from '../../services/email.service';
 import { type SendEmailDTO } from './sendEmail.dto';
 

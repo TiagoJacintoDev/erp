@@ -1,8 +1,8 @@
+import { DomainEvents } from '@/src/shared/domain/events/DomainEvents';
+import { type UniqueEntityID } from '@/src/shared/domain/UniqueEntityID';
 import { type PrismaClient } from '@prisma/client';
 import { type AsyncMaybe } from '@sms/shared/src/core/Maybe';
 
-import { DomainEvents } from '../../../../../shared/domain/events/DomainEvents';
-import { type UniqueEntityID } from '../../../../../shared/domain/UniqueEntityID';
 import { type User } from '../../../domain/user';
 import { type UserEmail } from '../../../domain/user-email';
 import { type PrismaUserMapper } from '../../../mappers/PrismaUserMapper';
