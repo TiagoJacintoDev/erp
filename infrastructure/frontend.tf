@@ -13,5 +13,5 @@ resource "azurerm_static_web_app" "vite_frontend_app" {
 resource "github_actions_secret" "gh_actions_secret" {
   secret_name     = "AZURE_STATIC_WEB_APPS_API_TOKEN"
   repository      = "subscription-management-system"
-  plaintext_value = azurerm_static_web_app.frontend_app.api_key
+  plaintext_value = azurerm_static_web_app.vite_frontend_app.api_key
 }
