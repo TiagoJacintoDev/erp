@@ -2,7 +2,7 @@ import { DefaultAzureCredential } from '@azure/identity';
 import { SecretClient } from '@azure/keyvault-secrets';
 import { asyncMapObject } from '../../utils/mapObject';
 
-const vaultUrl = 'https://kv-tj-erp.vault.azure.net';
+const vaultUrl = 'https://kv-tjerp.vault.azure.net';
 
 const credential = new DefaultAzureCredential();
 const client = new SecretClient(vaultUrl, credential);

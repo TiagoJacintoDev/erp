@@ -1,6 +1,6 @@
 variable "resource_suffix" {
   type    = string
-  default = "tj-erp"
+  default = "tjerp"
 }
 
 variable "backend_image_name" {
