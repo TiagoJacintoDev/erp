@@ -30,7 +30,6 @@ locals {
   }
 
   secrets = {
-    backend_url       = "backend-url"
     database_host     = "database-host"
     database_username = "database-username"
     database_password = "database-password"
@@ -66,7 +65,6 @@ module "avm_res_keyvault_vault" {
   }
 
   secrets_value = {
-    backend_url       = azurerm_container_app.backend.ingress[0].fqdn
     database_host     = azurerm_postgresql_flexible_server.pg_flex_server.fqdn
     database_username = azurerm_postgresql_flexible_server.pg_flex_server.administrator_login
     database_password = azurerm_postgresql_flexible_server.pg_flex_server.administrator_password
