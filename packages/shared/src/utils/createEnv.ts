@@ -2,7 +2,7 @@ import { type z } from 'zod';
 
 type CreateEnvOptions<T extends z.AnyZodObject> = {
   schema: T;
-  runtimeEnv: Record<keyof z.infer<T>, unknown>;
+  runtimeEnv: Record<string, unknown>;
 };
 
 export function createEnv<T extends z.AnyZodObject>(opts: CreateEnvOptions<T>) {

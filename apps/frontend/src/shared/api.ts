@@ -14,8 +14,10 @@ import {
 import axios, { type AxiosError } from 'axios';
 import { type SetRequired } from 'type-fest';
 
+import { config } from './config';
+
 const instance = axios.create({
-  baseURL: 'http://localhost:3000/api/v1',
+  baseURL: `${config.env.VITE_API_URL}/api/v1`,
   headers: {
     'Accept-Language': 'pt-PT',
   },
