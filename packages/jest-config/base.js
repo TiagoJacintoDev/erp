@@ -11,6 +11,10 @@ module.exports = {
             decorators: true,
           },
           target: 'es2020',
+          baseUrl: './',
+          paths: {
+            '@/*': ['./*'],
+          },
         },
         module: {
           type: 'commonjs',

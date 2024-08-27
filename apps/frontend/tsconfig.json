@@ -6,6 +6,7 @@
     "moduleResolution": "Bundler",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "noEmit": true,
+    "baseUrl": "./",
     "paths": {
       "@/*": ["./*"]
     }
